@@ -1,0 +1,18 @@
+{
+  "name": "my_protractor_tests",
+  "version": "1.0.0",
+  "description": "Description for my protractor tests",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "webdriver-manager update",
+    "tsc": "tsc",
+    "pretest": "npm run tsc",
+    "test": "protractor"
+  },
+  "dependencies": {
+    "@types/jasmine": "^2.8.3",
+    "protractor": "^5.2.2",
+    "typescript": "^2.6.2"
+  }
+}
