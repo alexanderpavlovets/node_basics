@@ -1,0 +1,18 @@
+{
+	"filter": {
+		"typeOfProcess": "All Proesses",
+		"typeOfProcessBoxes": [
+			{
+				"name": "Open",
+				"state": true
+			},
+			{
+				"name": "Finished",
+				"state": true
+			}
+		],
+		"actionButtons": {
+			"name": "filter"
+		}
+	}
+}

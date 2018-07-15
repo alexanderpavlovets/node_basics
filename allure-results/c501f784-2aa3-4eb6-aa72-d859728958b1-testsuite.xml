@@ -1,0 +1,112 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1531676956118' stop='1531677005154'>
+    <name>Processes</name>
+    <title>Processes</title>
+    <test-cases>
+        <test-case start='1531676956129' status='broken' stop='1531677005154'>
+            <name>DCLI : (Lump Sum Amount) "Print" Button EBA-327 chrome</name>
+            <title>DCLI : (Lump Sum Amount) "Print" Button EBA-327 chrome</title>
+            <labels/>
+            <parameters/>
+            <steps>
+                <step start='1531676956129' status='passed' stop='1531676960951'>
+                    <name>Login user</name>
+                    <title>Login user</title>
+                    <attachments>
+                        <attachment title='arg0' source='dc160f63-c89d-40e4-a720-726c1ed89e2f-attachment.json' type='application/json' size='47'/>
+                        <attachment title='Login user' source='cadaf182-4be1-4b66-b943-249845351f46-attachment.png' type='image/png' size='430871'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1531676960952' status='passed' stop='1531676961985'>
+                    <name>Click tab ("Processes","/Processes/ProcessesMain.aspx")</name>
+                    <title>Click tab ("Processes","/Processes/ProcessesMain.aspx")</title>
+                    <attachments>
+                        <attachment title='Click tab ("Processes","/Processes/ProcessesMain.aspx")' source='28b4bb09-0075-4fbd-8154-10303cad6436-attachment.png' type='image/png' size='180163'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1531676961985' status='passed' stop='1531676969918'>
+                    <name>Select project("Dynamic Commitments")</name>
+                    <title>Select project("Dynamic Commitments")</title>
+                    <attachments>
+                        <attachment title='Select project("Dynamic Commitments")' source='69220158-94fc-4ca5-8bec-7560151e2645-attachment.png' type='image/png' size='322230'/>
+                    </attachments>
+                    <steps>
+                        <step start='1531676961985' status='passed' stop='1531676969517'>
+                            <name>Select value from list("Dynamic Commitments")</name>
+                            <title>Select value from list("Dynamic Commitments")</title>
+                            <attachments>
+                                <attachment title='Select value from list("Dynamic Commitments")' source='32b19008-6416-4cad-b3a5-f00b12253e03-attachment.png' type='image/png' size='179499'/>
+                            </attachments>
+                            <steps/>
+                        </step>
+                    </steps>
+                </step>
+                <step start='1531676969918' status='passed' stop='1531676972964'>
+                    <name>Start process</name>
+                    <title>Start process</title>
+                    <attachments>
+                        <attachment title='Start process' source='331ecf5d-baad-4713-9eef-5732f4c7618c-attachment.png' type='image/png' size='205417'/>
+                    </attachments>
+                    <steps>
+                        <step start='1531676969919' status='passed' stop='1531676971054'>
+                            <name>Click button ("Start Process")</name>
+                            <title>Click button ("Start Process")</title>
+                            <attachments>
+                                <attachment title='Click button ("Start Process")' source='3454936f-74fb-426e-b8d5-272b8770d730-attachment.png' type='image/png' size='322657'/>
+                            </attachments>
+                            <steps/>
+                        </step>
+                    </steps>
+                </step>
+                <step start='1531676972964' status='passed' stop='1531676980337'>
+                    <name>Select process</name>
+                    <title>Select process</title>
+                    <attachments>
+                        <attachment title='arg0' source='b91583e9-c970-468e-90cf-0cb580646181-attachment.json' type='application/json' size='105'/>
+                        <attachment title='Select process' source='d686ce8d-7baf-4017-9aca-2b012b7d0866-attachment.png' type='image/png' size='161398'/>
+                    </attachments>
+                    <steps/>
+                </step>
+                <step start='1531676980337' status='passed' stop='1531676989819'>
+                    <name>Set process data</name>
+                    <title>Set process data</title>
+                    <attachments>
+                        <attachment title='arg0' source='592c9fb4-2e0d-4ba1-9432-79b839869fc7-attachment.json' type='application/json' size='58'/>
+                        <attachment title='Set process data' source='c5c4e1a7-ba7d-4e3f-80bf-1cfc7bf710be-attachment.png' type='image/png' size='188381'/>
+                    </attachments>
+                    <steps>
+                        <step start='1531676980597' status='passed' stop='1531676989484'>
+                            <name>Select value from list("012")</name>
+                            <title>Select value from list("012")</title>
+                            <attachments>
+                                <attachment title='Select value from list("012")' source='622986ea-8a63-440e-ab2f-ec2624fd5cc5-attachment.png' type='image/png' size='188381'/>
+                            </attachments>
+                            <steps/>
+                        </step>
+                    </steps>
+                </step>
+                <step start='1531676989819' status='broken' stop='1531677005151'>
+                    <name>Set data at Project Processes page</name>
+                    <title>Set data at Project Processes page</title>
+                    <attachments>
+                        <attachment title='arg0' source='0d9055e3-fb21-43e1-b227-ea7e1dd1cbda-attachment.json' type='application/json' size='231'/>
+                        <attachment title='ERROR' source='de29e3ed-89af-4d2a-8c03-40368fb5d7ce-attachment.txt' type='text/plain' size='72'/>
+                        <attachment title='Error' source='54e981e7-ff4c-4ddf-bff3-f6d7cf16e9e4-attachment.png' type='image/png' size='188381'/>
+                    </attachments>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <failure>
+                <message>Filter fragment should appear
+                Wait timed out after 15004ms</message>
+                <stack-trace>TimeoutError: Filter fragment should appear
+                Wait timed out after 15004ms
+                    at node_modules/selenium-webdriver/lib/promise.js:2201:17
+                    at process._tickCallback (internal/process/next_tick.js:178:7)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
