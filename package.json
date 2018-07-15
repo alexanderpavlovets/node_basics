@@ -1,5 +1,5 @@
 {
-  "name": "my_protractor_tests",
+  "name": "protractor_playground",
   "version": "1.0.0",
   "description": "Description for my protractor tests",
   "author": "",
@@ -7,13 +7,15 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "tsc": "tsc",
-    "pretest": "npm run tsc",
     "test": "protractor"
   },
   "dependencies": {
-    "@types/jasmine": "^2.8.3",
-    "@types/node": "^9.4.6",
-    "protractor": "^5.2.2",
-    "typescript": "^2.6.2"
+    "@types/jasmine": "^2.8.8",
+    "@types/node": "^10.5.2",
+    "protractor": "^5.3.2",
+    "typescript": "^2.9.2"
+  },
+  "devDependencies": {
+    "ts-node": "^7.0.0"
   }
 }
