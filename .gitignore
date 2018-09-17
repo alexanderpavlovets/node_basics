@@ -1,10 +1,3 @@
 # installed npm dependencies
 node_modules/*
 
-# compiled js and debug files:
-*.js
-*.js.map
-
-# config file of protractor should be available in the remote repo:
-!protractor.conf.js
-
