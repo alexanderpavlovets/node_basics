@@ -3,4 +3,4 @@ require('ts-node').register({
   app: './'
 })
 
-module.exports = require('./config/protractor.conf')
+module.exports = require('./protractor_config/protractor.conf')
