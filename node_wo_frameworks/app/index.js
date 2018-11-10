@@ -7,14 +7,40 @@
 
 // Dependencies
 const http = require('http')
+const https = require('https')
 const url = require('url')
 const StringDecoder = require('string_decoder').StringDecoder
-const config = require('./config')
+const config = require('./lib/config')
+const fs = require('fs')
+const handlers = require('./lib/handlers')
+const helpers = require('./lib/helpers')
 
+// Instantiate HTTP server
+const httpServer = http.createServer(function(req, res) {
+  unifiedServer(req, res)
+})
 
-// The server should respond to all requests with a string
-const server = http.createServer(function(req, res) {
+// Start the HTTP server
+httpServer.listen(config.httpPort, function(){
+  console.log('The server is listening on port ' + config.httpPort + ' in ' + config.envName + ' mode')
+})
 
+// Instantiate HTTPS server
+const httpsServerOptions = {
+  key: fs.readFileSync('./https/key.pem'),
+  cert: fs.readFileSync('./https/cert.pem')
+}
+const httpsServer = https.createServer(httpsServerOptions, function(req, res) {
+  unifiedServer(req, res)
+})
+
+// Start the HTTPS server
+httpsServer.listen(config.httpsPort, function(){
+  console.log('The server is listening on port ' + config.httpsPort + ' in ' + config.envName + ' mode')
+})
+
+// Server logic for both http and https servers
+const unifiedServer = function (req, res) {
   // Get the URL and parse it
   const parsedUrl = url.parse(req.url, true)
 
@@ -49,7 +75,7 @@ const server = http.createServer(function(req, res) {
       queryStringObject: queryStringObject,
       method: method,
       headers: headers,
-      payload : buffer
+      payload : helpers.parseJsonToObject(buffer)
     }
 
     // Route the request to the handler specified in the router
@@ -72,30 +98,10 @@ const server = http.createServer(function(req, res) {
       console.log('Returning response:', statusCode, payloadString)
     })
   })
-})
-
-// Start the server
-server.listen(config.port, function(){
-  console.log('The server is listening on port ' + config.port + ' in ' + config.envName + ' mode')
-})
-
-// Define the handlers
-const handlers = {}
-
-// Sample handler
-handlers.sample = function(data, callback) {
-  // Callback a http status code, and a payload object
-  callback(406, {name: 'sample handler'})
-}
-
-// Not found handler
-handlers.notFound = function(data, callback) {
-  callback(404)
 }
 
 // Define a request router
 const router = {
-  sample: handlers.sample
+  ping: handlers.ping,
+  users: handlers.users
 }
-
-// continue on Lesson 21 very beginning _____________________________________________________________________________
