@@ -1,8 +1,6 @@
 /*
  * Library for request handlers
  *
- *
- *
  */
 
 // Dependencies
@@ -13,6 +11,48 @@ const config = require('./config')
 
 // Define the handlers
 const handlers = {}
+
+/*
+ * HTML handlers
+ *
+ */
+
+// Index handler
+handlers.index = function(data, callback) {
+  // Reject any request taht is not GET
+  if(data.method === 'get') {
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'This is a title',
+      'head.description': 'This is the meta description',
+      'body.title': 'Hello templated world!',
+      'body.class': 'index'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('index', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+/*
+ * JSON API handlers
+ *
+ */
 
 // Users
 handlers.users = function(data, callback) {
