@@ -11,6 +11,9 @@ const https = require('https')
 const url = require('url')
 const _data = require('./data')
 const helpers = require('./helpers')
+const _logs = require('./logs')
+const util = require('util')
+const debug = util.debuglog('workers')
 
 // Instantiate the workers object
 const workers = {}
@@ -27,12 +30,12 @@ workers.gatherAllChecks = function() {
             // Pass it to the check validator, and let that function continue or log errors
             workers.validateCheckData(originalCheckData)
           } else {
-            console.log('Error reading one of the check data')
+            debug('Error reading one of the check data')
           }
         })
       })
     } else {
-      console.log('Error: Could not found any checks to process')
+      debug('Error: Could not found any checks to process')
     }
   })
 }
@@ -62,7 +65,7 @@ workers.validateCheckData = function(originalCheckData) {
     originalCheckData.timeoutSeconds) {
       workers.performCheck(originalCheckData)
   } else {
-    console.log('Error: One of the checks is not properly formatted. Skipping it')
+    debug('Error: One of the checks is not properly formatted. Skipping it')
   }
 }
 
@@ -145,10 +148,14 @@ workers.processCheckOutcome = function(originalCheckData, checkOutcome) {
   // Decide if an allert is warranted
   const allertWarranted = originalCheckData.lastChecked && originalCheckData.state !== state ? true : false
 
+  // Log the outcome of the check
+  const timeOfCheck = Date.now()
+  workers.log(originalCheckData, checkOutcome, state, allertWarranted, timeOfCheck)
+
   // Update the check data
   const newCheckData = originalCheckData
   newCheckData.state = state
-  newCheckData.lastChecked = Date.now()
+  newCheckData.lastChecked = timeOfCheck
 
   // Save the updates
   _data.update('checks', newCheckData.id, newCheckData, function(err){
@@ -157,10 +164,10 @@ workers.processCheckOutcome = function(originalCheckData, checkOutcome) {
       if (allertWarranted) {
         workers.alertUserstoStatusChange(newCheckData)
       } else {
-        {console.log('Check outcome has not changed, no alert needed')}
+        {debug('Check outcome has not changed, no alert needed')}
       }
     } else {
-      console.log('Error trying to save updates to one of the checks')
+      debug('Error trying to save updates to one of the checks')
     }
   })
 }
@@ -170,9 +177,35 @@ workers.alertUserstoStatusChange = function(newCheckData) {
   const msg = 'Allert: Your check for ' + newCheckData.method.toUpperCase() + ' ' +newCheckData.protocol + '://' + newCheckData.url + ' is currently ' + newCheckData.state
   helpers.sendTwilioSms(newCheckData.userPhone, msg, function(err){
     if(!err) {
-      console.log('Success: User was alerted to a status change, via sms ', msg)
+      debug('Success: User was alerted to a status change, via sms ', msg)
     } else {
-      console.log('Error: Could not send sms alert to user who had a state change in their check')
+      debug('Error: Could not send sms alert to user who had a state change in their check')
+    }
+  })
+}
+
+workers.log = function(originalCheckData, checkOutcome, state, allertWarranted, timeOfCheck) {
+  // Form the log data
+  const logData = {
+    check: originalCheckData,
+    outcome: checkOutcome,
+    state: state,
+    alert: allertWarranted,
+    time: timeOfCheck
+  }
+
+  // Convert data to a string
+  const logString = JSON.stringify(logData)
+
+  // Determine the name of the log file
+  const logFileName = originalCheckData.id
+
+  // Append the log string to the file
+  _logs.append(logFileName, logString, function(err) {
+    if(!err) {
+      debug('Logging to the file succeeded')
+    } else {
+      debug('Logging to file failed')
     }
   })
 }
@@ -181,17 +214,63 @@ workers.alertUserstoStatusChange = function(newCheckData) {
 workers.loop = function() {
   setInterval(function() {
     workers.gatherAllChecks()
-  }, 1000 * 5)
+  }, 1000 * 60)
+}
+
+// Rotate (compress) the log files
+workers.rotateLogs = function() {
+  // List all the (non compressed) log files
+  _logs.list(false, function(err, logs){ // false - because we don't want get already rotatet (compressed) files
+    if(!err && logs && logs.length > 0) {
+      logs.forEach(function(logName) {
+        // Compress the data to a different file
+        const logId = logName.replace('.log', '')
+        const newFileId = logId + '-' + Date.now()
+        _logs.compress(logId, newFileId, function(err){
+          if(!err) {
+            // Truncate the log
+            _logs.truncate(logId, function(err){
+              if(!err) {
+                debug('Success truncating log file')
+              } else {
+                debug('Error truncating log')
+              }
+            })
+          } else {
+            debug('Error compressing one of the log files')
+          }
+        })
+      })
+    } else {
+      debug('Error: could not find any logs to rotate')
+    }
+  })
+}
+
+// Timer to execute the log0rotation process once per  day
+workers.logRotationLoop = function() {
+  setInterval(function() {
+    workers.rotateLogs()
+  }, 1000 * 60 * 60 * 24)
 }
 
 // Init script
 workers.init = function() {
+
+  // Send to console in yellow
+  console.log('\x1b[33m%s\x1b[0m', 'Background workers are running')
+
   // Execute all the checks immidiately
   workers.gatherAllChecks()
 
   // Call the loop so the checks will execute later on
   workers.loop()
 
+  // Compress all the logs immidiately
+  workers.rotateLogs()
+
+  // Call the compression loop so logs will be compressed later on
+  workers.logRotationLoop()
 }
 
 // Export the module
