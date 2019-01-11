@@ -176,7 +176,7 @@ helpers.interpolate = function(str, data) {
     if(data.hasOwnProperty(key) && typeof(data[key]) === 'string') {
       const replace = data[key]
       const find = '{' + key + '}'
-      str = str.replace(find, replace)
+      str = str.replace(find, replace) //maybe will replace only first match. Solution - str.replace(new RegExp(find, 'g'), replace))
     }
   }
 
