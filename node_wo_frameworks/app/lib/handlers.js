@@ -23,14 +23,265 @@ handlers.index = function(data, callback) {
   if(data.method === 'get') {
     // Prepare data for interpolation
     const templateData = {
-      'head.title': 'This is a title',
-      'head.description': 'This is the meta description',
-      'body.title': 'Hello templated world!',
+      'head.title': 'Uptime Monotoring - Made Simple',
+      'head.description': 'We ofer free, simple uptime monitoring for HTTP/HTTPS sites of all kinds. When your site goes down, we will send you a text to let you know',
       'body.class': 'index'
     }
 
     // Read in a template as a string
     helpers.getTemplate('index', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Create Account
+handlers.accountCreate = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Create an Account',
+      'head.description': 'Signup is easy and only takes a few seconds',
+      'body.class': 'accountCreate'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('accountCreate', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Create New Session
+handlers.sessionCreate = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Login to your account',
+      'head.description': 'Please enter your phone number and password to access your account',
+      'body.class': 'sessionCreate'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('sessionCreate', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Session has been deleted
+handlers.sessionDeleted = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Logged out',
+      'head.description': 'You hvae been logged out',
+      'body.class': 'sessionDeleted'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('sessionDeleted', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Edit your acount
+handlers.accountEdit = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Account Settings',
+      'body.class': 'accountEdit'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('accountEdit', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Account has been deleted
+handlers.accountDeleted = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Account Deleted',
+      'head.description': 'Your account has been deleted',
+      'body.class': 'accountDeleted'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('accountDeleted', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Create a new Check
+handlers.checksCreate = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Create a New Check',
+      'body.class': 'checksCreate'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('checksCreate', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Dashboard (view all checks)
+handlers.checksList = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Dashboard',
+      'body.class': 'checksList'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('checksList', templateData, function(err, str) {
+      if(!err && str) {
+        // Add the universal header and footer
+        helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
+          if(!err && wholePageStr) {
+            callback(200, wholePageStr, 'html')
+          } else {
+            callback(500, undefined, 'html')
+          }
+        })
+      } else {
+        callback(500, undefined, 'html')
+      }
+    })
+  } else {
+    callback(405, undefined, 'html') // method not allowed
+  }
+}
+
+// Edit a check
+handlers.checksEdit = function(data, callback) {
+  // Reject any request that is not GET
+  if(data.method === 'get') {
+
+    // Prepare data for interpolation
+    const templateData = {
+      'head.title': 'Check Details',
+      'body.class': 'checksEdit'
+    }
+
+    // Read in a template as a string
+    helpers.getTemplate('checksEdit', templateData, function(err, str) {
       if(!err && str) {
         // Add the universal header and footer
         helpers.addUniversalTemplates(str, templateData, function(err, wholePageStr) {
