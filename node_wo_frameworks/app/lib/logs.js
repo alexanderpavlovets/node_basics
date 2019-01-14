@@ -109,13 +109,13 @@ lib.compress = function(logId, newFileId, callback) {
 lib.decompress = function(fileId, callback) {
   const fileName = fileId + '.gz.b64'
   fs.readFile(lib.baseDir + fileName, 'utf-8', function(err, str) {
-    if(!err & str) {
+    if(!err && str) {
       // Decompress the data
       const inputBuffer = Buffer.from(str, 'base64')
       zlib.unzip(inputBuffer, function(err, outputBuffer) {
         if(!err && outputBuffer) {
           // Callback
-          const str = outputBuffer.toString
+          const str = outputBuffer.toString()
           callback(false, str)
         } else {
           callback(err)
