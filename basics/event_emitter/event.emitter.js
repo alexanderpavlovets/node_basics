@@ -24,4 +24,7 @@ sanya.emit('morning', 'shower')
 
 myEmitter.emit('morning', 'common action') // won't do anything, different emitters for each Person
 
-
+// According to the docs:
+const eventsModule = requrie('events')
+class EE extends eventsModule{}
+const myEE = new EE()
