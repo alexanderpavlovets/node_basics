@@ -3,38 +3,18 @@
  *
  */
 
-// Dependencies
-const helpers = require('./../lib/helpers')
-const assert = require('assert')
+// Override the NODE_ENV variable
+process.env.NODE_ENV = 'testing'
 
 // Application logic for the test runner
 _app = {}
 
 // Container for the tests
-_app.tests = {
-  unit: {}
-}
+_app.tests = {}
 
-// Assert that the getANumber function is returning a number
-_app.tests.unit['helpers.getANumber should return number '] = function(done) { // 'done' is callback, this is just convention to name it 'done'
-  const val = helpers.getAnumber()
-  assert.equal(typeof(val), 'number')
-  done()
-}
-
-// Assert that the getANumber function is returning a 1
-_app.tests.unit['helpers.getANumber should return 1'] = function(done) {
-  const val = helpers.getAnumber()
-  assert.equal(val, 1)
-  done()
-}
-
-// Assert that the getANumber function is returning a 1
-_app.tests.unit['helpers.getANumber should return 2'] = function(done) {
-  const val = helpers.getAnumber()
-  assert.equal(val, 2)
-  done()
-}
+// Add on the unit tests
+_app.tests.inut = require('./unit')
+_app.tests.api = require('./api')
 
 // Count all the test
 _app.countTests = function() {
@@ -123,6 +103,7 @@ _app.produceTestReport = function(limit, successes, errors){
 
   console.log('')
   console.log('---------------- END TEST REPORT ----------------')
+  process.exit(0) // stop the app. App was launched via API test
 }
 
 
