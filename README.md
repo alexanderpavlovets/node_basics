@@ -50,3 +50,6 @@ While you are in "app" directory
 node test
 ```
 This will go to "test" folder and execute "index.js"
+
+
+### Use index-cluster file to get info about usage of all CPUs available
