@@ -21,3 +21,25 @@ Than run NODE_DEBUG=server node index.js
 
 ### CLI Commands:
 * Just type "help" in order to see CLI commands
+
+### Debuger
+* just read the doc
+* Basically need to add "debugger" before and after actions
+```
+console.log('Just converted foo to string')
+debugger
+```
+* Run Node as:
+```
+node inspect index-debug.ts
+```
+
+* After this in command line available sever commands:
+```
+cont, next, in, out, pos
+```
+
+* while debugging (ran "node inspect index-debug.ts" - several times "cont" for example ), repl is available. You can see variable values just by typing them while in repl 
+```
+repl
+```
