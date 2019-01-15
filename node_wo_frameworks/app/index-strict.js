@@ -1,8 +1,8 @@
 /*
  * Primary file for the API
  *
- *
- *
+ * Modified to have 'use-strict' error - global variable declared.
+ * to see it - run "node --use_strict index-strict.js"
  */
 
 // Dependencies
@@ -13,8 +13,12 @@ const cli = require('./lib/cli')
 // Declare the app
 const app = {}
 
+// Declare a global variable that strict mode should catch
+foo = 'bar'
+
+
 // Init function
-app.init = function(callback){
+app.init = function(){
   // Start the server
   server.init()
 
@@ -24,14 +28,12 @@ app.init = function(callback){
   // Start the CLI, but make sure it starts last
   setTimeout(function() {
     cli.init()
-    callback()
   }, 50)
 }
 
-// Self invoking only if required directly
-if(require.main === module) {
-  app.init(function(){}) // app will start only if invoked from command line. If invoked from another file - won't run this.
-}
+// Execute
+app.init()
+
 
 // Export the app
 module.exports = app
