@@ -7,12 +7,12 @@ const fs = require('fs')
 
 // process.stdout.write('Console.log via process stdout write' + '\n') // same as console.log()
 
-// // read current file and print it 
+// // read current file and print it
 // fs.createReadStream(__filename).pipe(process.stdout) // will read current file and print it out
 
 
 // // process.exit()
-// let count = 0 
+// let count = 0
 // setInterval(() => {
 //   count++
 //   if (count > 30){
@@ -40,17 +40,17 @@ const fs = require('fs')
 //   })
 // }
 
-// // ____ spawn + pipe 
+// // ____ spawn + pipe
 // const spawn = require('child_process').spawn
 // if (process.argv[2] === 'child') {
 //   console.log('I am inside the child ')
 
 // } else {
-//   const child = spawn(process.execPath, [__filename, 'child']) 
+//   const child = spawn(process.execPath, [__filename, 'child'])
 //   child.stdout.pipe(process.stdout) // pipe to the main process
 // }
 
-//_____ inherit stdout from process 
+//_____ inherit stdout from process
 const spawn = require('child_process').spawn
 
 if (process.argv[2] === 'child') {
@@ -59,6 +59,14 @@ if (process.argv[2] === 'child') {
 } else {
   const child = spawn(process.execPath, [__filename, 'child'], {
     stdio: 'inherit'
-  }) 
-  
+  })
+
 }
+
+console.log('___________________')
+console.log(process.env)
+process.env.CREDENTIALS = {login: 'login@login.com', password: '123123123'}
+
+// Bad one - insert here only path to file with credentials, than read file with node
+console.log(process.env.CREDENTIALS)
+console.log(process.env.CREDENTIALS.login) // won't work ! Inly strings
