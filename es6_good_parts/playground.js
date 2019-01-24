@@ -15,3 +15,21 @@ console.log(b)
 console.log(c)
 
 console.log('________________')
+
+
+console.log('Swap the parameters')
+function foo (x, y) {
+  console.log(`Got X=${x} Y=${y}`)
+
+  if (x > y) {
+    console.log('Swap!');
+    [y, x] = [...arguments]
+  }
+  console.log(`X is ${x}`)
+  console.log(`Y is ${y}`)
+}
+
+foo(3, 1)
+foo(1, 5)
+
+console.log('________________')
