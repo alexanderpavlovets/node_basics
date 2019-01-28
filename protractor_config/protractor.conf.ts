@@ -6,7 +6,7 @@ const conf: Config = {
     maxInstances: 1
     },
   allScriptsTimeout: 30 * 1000,
-  specs: ['specs/*.ts'],
+  specs: ['specs/one.ts'],
   baseUrl: 'http://www.protractortest.org/testapp/ng1/',
 
   directConnect: true,

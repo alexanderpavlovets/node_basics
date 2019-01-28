@@ -1,7 +1,7 @@
 import { browser, $, $$, element, by, ExpectedConditions as ES } from 'protractor'
-
+this.a = 'I am just "A"'
 describe('First suite', () => {
-    it('One is equal to one', wrappCB(async () => {
+    it('One is equal to one', wrappCB(async function() {
         await browser.get('')
         await browser.sleep(2000)
         throw new Error('Error thrown')
@@ -11,7 +11,6 @@ describe('First suite', () => {
 
 
 function wrappCB(fn) {
-
   return async function() {
     try {
       await fn()

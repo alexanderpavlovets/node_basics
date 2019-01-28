@@ -11,6 +11,8 @@ console.log(a)
 const aa = {a: 1, b: 2}
 const bb = {c: 3}
 
-const cc = {...aa, ...bb}
+const cc = {...aa, ...bb};
 
 console.log(cc)
+
+// _____________________
