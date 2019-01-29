@@ -40,6 +40,8 @@ console.log(nestedA, nestedB)
 console.log('_______________________')
 // __________________________
 
-function abc({a, b, c}) {
-  
+function abc({a, b = 10, c} = {}) { // again = {} is for safety 
+  console.log(a, b, c)
 }
+
+abc({c: 3, a: 1}) // order is not important here
