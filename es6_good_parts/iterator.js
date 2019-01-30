@@ -50,3 +50,9 @@ const vals = [ ...obj ]
 console.log(vals)
 
 console.log('Basically - need to implement an [Symbol.iterator] function, that returns iterator object, that has "next" method')
+
+// _________________________ How to check if iterator exists:
+console.log('__________ How to check if iterator exists')
+
+console.log('hi'[Symbol.iterator]())
+console.log([1][Symbol.iterator]())

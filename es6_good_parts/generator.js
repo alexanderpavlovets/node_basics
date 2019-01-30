@@ -68,3 +68,27 @@ const obj = {
 
 const vals = [ ...obj ]
 console.log(vals)
+
+
+// _______________________
+console.log('___________________')
+console.log('Please read https://medium.com/dailyjs/a-simple-guide-to-understanding-javascript-es6-generators-d1c350551950')
+
+// _______________________
+console.log('___________________')
+console.log('Yield* - combining the generators')
+
+function* gen1(){
+  yield 2
+  yield 3
+}
+function* gen2(){
+  yield 1
+  yield* gen1()
+  yield 4
+}
+const iter = gen2()
+console.log(iter.next())
+console.log(iter.next())
+console.log(iter.next())
+console.log(iter.next())
