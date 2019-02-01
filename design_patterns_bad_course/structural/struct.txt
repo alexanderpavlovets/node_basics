@@ -1,0 +1,7 @@
+Structural:
+
+- how to form relationships
+
+- class paterns describe relationships and structures via inheritance 
+
+- how objects can be associated and aggregated  to form larger and complex structures
