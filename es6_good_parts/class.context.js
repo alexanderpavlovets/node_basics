@@ -6,6 +6,7 @@ class Person {
 
   method2() {
     return {
+      a: 123333,
       closure1: function a() {console.log(this.a)}.bind(this),
       closure2: function a() {console.log(this.a)},
       closure3: function() {console.log(this.a)},
@@ -30,5 +31,6 @@ class Dev {
 }
 
 const dev = new Dev()
-pers.method2().closure1.call(dev) // this "call" WON'T overrite befault bind on string 9
-pers.method2().closure2.call(dev)
+pers.method2().closure1.call(dev) // 123 - "call" WON'T overrite DEFAULT BIND on string 9
+pers.method2().closure2.call(dev) // I am Dev
+pers.method2().closure4.call(dev) // 123 - "call" still refered to initial "lexical this"
