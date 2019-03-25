@@ -2,8 +2,6 @@ Jenkins:
 
 at this time - Jenkins runs only with Java8 (not higher). I had to remove Java 10 jdk file.
 
-
-
 Commands: 
 
 sudo cat /var/log/jenkins/jenkins.log 

@@ -1,19 +1,15 @@
-function factorial(number) {
-  if (number === 0) {
-    return 1
-  }
-  return number * factorial(number - 1)
+
+
+const variab = function () {
+  console.log('i am first function ')
 }
 
-// console.log(factorial(3))
+variab.myProperty = 123 
 
-// __________________
-
-function greatestCommonDivisor(number1, number2) {
-  if (!number2) {
-    return number1
-  }
-  return greatestCommonDivisor(number2, number1 % number2)
-}
-
-// console.log(greatestCommonDivisor(111, 33))
+console.log(variab)
+console.log(variab.prototype) 
+console.log(variab.prototype.constructor) 
+console.log(variab.__proto__)
+console.log(variab.__proto__.constructor) 
+console.log(variab.__proto__.constructor.prototype)
+console.log(variab.constructor)
