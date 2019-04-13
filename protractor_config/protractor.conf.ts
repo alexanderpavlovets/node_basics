@@ -3,6 +3,8 @@ import { browser, Config } from 'protractor'
 const conf: Config = {
   capabilities: {
     browserName: 'chrome',
+    version: '71.0', // for selenoid 
+    enableVNC: true, // for selenoid
     maxInstances: 1
     },
   allScriptsTimeout: 30 * 1000,
