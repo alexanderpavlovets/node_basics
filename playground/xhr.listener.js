@@ -8,7 +8,7 @@ async function setXhrListener() {
     window.xhrCount = 0
     
     function openReplacement(method, url, async, user, password) {
-      this._url = url;
+      this._url = url; // maybe unnecessary here 
       xhrCount += 1
       return open.apply(this, arguments);
     }

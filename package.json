@@ -7,7 +7,8 @@
   "scripts": {
     "drivers-update": "webdriver-manager update",
     "tsc": "tsc",
-    "test": "protractor"
+    "test": "protractor",
+    "ts-node": "ts-node"
   },
   "dependencies": {
     "@types/jasmine": "^2.8.8",
