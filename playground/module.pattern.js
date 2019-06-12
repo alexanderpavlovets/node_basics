@@ -49,9 +49,38 @@ const modulePattern = (function(){
   }
 })()
 
+console.log('Module pattern')
 console.log(modulePattern.getCurrentValue()) // 10
 modulePattern.increase() // 11
 modulePattern.increase() // 12
 modulePattern.increase() // 13
 modulePattern.decrease() // 12
 console.log(modulePattern.getCurrentValue()) // 12
+
+
+// Module logic with chaining
+const modulePatternChain = (function(){
+  value = 10
+  function increase(){
+    value += 1
+    return this
+  }
+  function decrease(){
+    value -= 1
+    return this
+  }
+  function getCurrentValue(){
+    return value
+  }
+
+  return {
+    increase,
+    decrease,
+    getCurrentValue
+  }
+})()
+
+console.log('Module with chaining: ')
+console.log(modulePatternChain.getCurrentValue()) // 10
+const resultOfIncreasing = modulePatternChain.increase().increase().increase().getCurrentValue() // 13
+console.log(resultOfIncreasing)
