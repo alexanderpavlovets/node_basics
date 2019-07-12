@@ -7,6 +7,7 @@ console.log(a)
 console.log(a.name)
 console.log(a.__proto__)
 // ______________________
+console.log('************************')
 
 const Parent = function() {
   this.parentProp = 'parentProp'
