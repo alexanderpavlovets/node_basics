@@ -35,6 +35,15 @@ console.log(Humans1.prototype) // ?
 console.log(Humans1.__proto__) // ? 
 
 
+// ______
+console.log('*********** Number:')
+console.log(Number.prototype)
+console.log(Number.__proto__)
+
+
 console.log('*********** Magic:')
-console.log(Object.__proto__ === Array.__proto__)    // ?
-console.log(Object.__proto__ === Function.__proto__) // ?
+// console.log(Object.__proto__ === Array.__proto__)    // ?
+// console.log(Object.__proto__ === Function.__proto__) // ?
+// console.log(Number.__proto__ === Function.__proto__) // ?
+// console.log(Object.constructor === Function) // ?
+// console.log(Number.constructor === Function) // ?
