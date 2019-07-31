@@ -29,3 +29,6 @@ const o1 = Object.create(b, {o1Prop: {value:1, enumerable: true}})
 console.log(o1) // ?
 console.log(o1.__proto__) // ?
 console.log(o1.__proto__.__proto__) // ?
+
+
+// do not forget utils.inherit - show an example 
