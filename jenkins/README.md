@@ -24,3 +24,6 @@ pipeline {
     }
 }
 ```
+
+6) push repo to the gihub 
+7) Jenkins -> New Item -> Enter name -> Multibranch Pipeline -> add source -> HTTPS link from repo -> save
