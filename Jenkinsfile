@@ -13,6 +13,12 @@ pipeline {
             script: 'echo "clang"'
         )}"""
     }
+
+    // Parameters for pipeline. See usage in stage 2 step 1 
+    parameters {
+      string(name: 'userName', defaultValue: 'Alex-Default', description: 'Default user name to usage')
+    }
+
     stages {
         stage('Example Stage 1') {
             environment {
@@ -27,9 +33,6 @@ pipeline {
             }
         }
         stage('Example Stage 2') {
-            parameters {
-              string(name: 'userName', defaultValue: 'Alex-Default', description: 'Default user name to usage')
-            }
             steps {
                 // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
                 echo "${params.userName} is current user"
