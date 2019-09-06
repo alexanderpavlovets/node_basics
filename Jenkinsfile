@@ -14,7 +14,7 @@ pipeline {
         )}"""
     }
     stages {
-        stage('build') {
+        stage('Example Stage 1') {
             environment {
               ADDED_ENV_VAR_FOR_STAGE = 'added env variable for stage where it was declared'
             }
@@ -24,6 +24,15 @@ pipeline {
                 echo env.ADDED_ENV_VAR
                 echo env.ADDED_ENV_VAR_FOR_STAGE
                 sh 'printenv'
+            }
+        }
+        stage('Example Stage 2') {
+            parameters {
+              string(name: 'userName', defaultValue: 'Alex-Default', description: 'Default user name to usage')
+            }
+            steps {
+                // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
+                echo "${params.userName} is current user"
             }
         }
     }
