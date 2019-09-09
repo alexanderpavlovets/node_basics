@@ -1,6 +1,13 @@
-# Basic ReadMe file
-* For usage, please run 'npm install', after downloading
-* Run 'npm test' in order to start your tests
+# This is main repo used as code-store:
+* courses
+  - es5 without frameworks(own server, UI, CLI)
+  - es6 good parts (nice one from Kyle Simpson)
+  - rethinking async JS (doesn't complete ... as i remember)
+  - design patterns examples(bad code and cource)
+* code examples and hints
+  - playground with interesting code samples
+* Jenkins readme (small notes, and Jenkinsfile itself)
+* protractor just because of habbit :)
 
 
 # ES5 Server details: 
