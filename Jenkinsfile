@@ -55,7 +55,7 @@ pipeline {
     // Failure handling:
     post {
         always {
-            sh echo 'Message from post-conditions/always'
+            echo 'Message from post-conditions/always'
         }
         failure {
             // mail to: team_do_not_exist@example.com, subject: 'The Pipeline failed :('
