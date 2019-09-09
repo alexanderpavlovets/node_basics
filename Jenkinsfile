@@ -58,7 +58,7 @@ pipeline {
             echo 'Message from post-conditions/always'
         }
         failure {
-            // mail to: team_do_not_exist@example.com, subject: 'The Pipeline failed :('
+            echo 'Message from post-conditions/failure'
         }
     }
 }
