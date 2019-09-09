@@ -59,13 +59,15 @@ pipeline {
 
         stage('Retry and Timeout') {
             steps {
-                retry(2) {
-                    sh './hmmm.sh'
-                    echo 'failed, should be retried'
-                }
-                timeout(time: 5, unit: 'SECONDS') {
-                    sh './some-check.sh'
-                }
+                // These fail the build - turned-off
+                // retry(2) {
+                //     sh './hmmm.sh'
+                //     echo 'failed, should be retried' // won't be displayed
+                // }
+                // timeout(time: 5, unit: 'SECONDS') {
+                //     sh './some-check.sh'
+                // }
+                echo 'Skipped'
             }
         }
     }
@@ -77,8 +79,17 @@ pipeline {
         always {
             echo 'Message from post-conditions/always'
         }
+        success {
+            echo 'Message from post-conditions/success'
+        }
         failure {
             echo 'Message from post-conditions/failure'
+        }
+        unstable {
+            echo 'Message from post-conditions/unstable'
+        }
+        changed {
+            echo 'Message from post-conditions/changed'
         }
     }
 }
