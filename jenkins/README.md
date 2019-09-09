@@ -29,3 +29,5 @@ pipeline {
 7) Jenkins -> New Item -> Enter name -> Multibranch Pipeline -> add source -> HTTPS link from repo -> save
 
 ### See Jenkins file with examples in rrot dir of this repo
+
+continue on "Handling failure"  https://jenkins.io/doc/book/pipeline/jenkinsfile/

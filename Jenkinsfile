@@ -38,5 +38,27 @@ pipeline {
                 echo "${params.userName} is current user"
             }
         }
+
+        stage('Example Stage 3') {
+            steps {
+                // Groovy-like methods call:
+                sh 'echo hello' /* short form  */
+                sh([script: 'echo hello'])  /* long form */
+            }
+        }
+    }
+    
+    // It is possible to use several agents (for Windows and Linux for example). I don't need so advance knowledge for now.
+
+    // It is possible to use parallel execution. I don't need so advance knowledge for now.
+
+    // Failure handling:
+    post {
+        always {
+            sh echo 'Message from post-conditions/always'
+        }
+        failure {
+            mail to: team_do_not_exist@example.com, subject: 'The Pipeline failed :('
+        }
     }
 }
