@@ -20,7 +20,7 @@ pipeline {
     }
 
     stages {
-        stage('Example Stage 1') {
+        stage('ENV_VARS') {
             environment {
               ADDED_ENV_VAR_FOR_STAGE = 'added env variable for stage where it was declared'
             }
@@ -32,26 +32,46 @@ pipeline {
                 sh 'printenv'
             }
         }
-        stage('Example Stage 2') {
+        
+        stage('Parameters') {
             steps {
                 // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
                 echo "${params.userName} is current user"
             }
         }
 
-        stage('Example Stage 3') {
+        stage('Groove') {
             steps {
                 // Groovy-like methods call:
                 sh 'echo hello' /* short form  */
                 sh([script: 'echo hello'])  /* long form */
             }
         }
+
+        stage('Multiple sh lines') {
+            steps {
+                sh '''
+                    echo "Multiline shell are available also"
+                    ls -lah
+                '''
+            }
+        }
+
+        stage('Retry and Timeout') {
+            steps {
+                retry(2) {
+                    sh './hmmm.sh'
+                    echo 'failed, should be retried'
+                }
+                timeout(time: 5, unit: 'SECONDS') {
+                    sh './some-check.sh'
+                }
+            }
+        }
     }
     
     // It is possible to use several agents (for Windows and Linux for example). I don't need so advance knowledge for now.
-
     // It is possible to use parallel execution. I don't need so advance knowledge for now.
-
     // Failure handling:
     post {
         always {
