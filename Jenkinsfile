@@ -40,6 +40,12 @@ pipeline {
             }
         }
 
+        stage('Interesting') {
+            steps {
+                docker ps
+            }
+        }
+
         stage('Groove') {
             steps {
                 // Groovy-like methods call:
