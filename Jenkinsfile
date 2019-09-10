@@ -1,5 +1,6 @@
 pipeline {
-    agent { docker { image 'node:6.3' } }
+    // agent { docker { image 'node:6.3' } }
+    agent any
     environment {
       ADDED_ENV_VAR = 'added env variable for all steps within pipeline'
 
@@ -40,7 +41,8 @@ pipeline {
             }
         }
 
-        stage('Interesting') {
+        stage('Docker') {
+            agent { docker { image 'node:6.3' } }
             steps {
                 echo 'started'
                 sh 'docker ps'
