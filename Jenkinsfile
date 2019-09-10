@@ -43,7 +43,7 @@ pipeline {
         stage('Interesting') {
             steps {
                 echo 'started'
-                echo docker ps
+                sh 'docker ps'
             }
         }
 
