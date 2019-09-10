@@ -42,7 +42,6 @@ pipeline {
         }
 
         stage('Docker') {
-            agent { docker { image 'node:6.3' } }
             steps {
                 echo 'started'
                 sh 'docker ps'
