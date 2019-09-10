@@ -42,7 +42,8 @@ pipeline {
 
         stage('Interesting') {
             steps {
-                docker ps
+                echo 'started'
+                echo docker ps
             }
         }
 
