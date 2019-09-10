@@ -44,7 +44,7 @@ pipeline {
         stage('Docker') {
             steps {
                 echo 'started'
-                sh 'docker ps'
+                sh 'docker image ls'
             }
         }
 
