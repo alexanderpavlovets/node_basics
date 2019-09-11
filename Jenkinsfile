@@ -85,7 +85,7 @@ pipeline {
     // Failure handling:
     post {
         always {
-            echo 'Message from post-conditions/always'
+            echo 'Message from post-conditions/always  '
         }
         success {
             echo 'Message from post-conditions/success'
