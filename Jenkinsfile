@@ -91,7 +91,7 @@ pipeline {
             echo 'Message from post-conditions/success'
         }
         failure {
-            echo 'Message from post-conditions/failure '
+            echo 'Message from post-conditions/failure'
         }
         unstable {
             echo 'Message from post-conditions/unstable'
