@@ -102,5 +102,3 @@ post {
     }
 }
 ```
-
-Conyinue with adding selenoid grid to Jenkins
