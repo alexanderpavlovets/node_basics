@@ -44,8 +44,10 @@ pipeline {
         stage('Scripts') {
             steps {
                 sh 'docker image ls'
-                dir("folder") {
+                dir("test_framework") {
                     sh 'pwd'
+                    git url: 'https://github.com/alexanderpavlovets/easy_start_protractor-ts.git'
+                    sh 'cat README.md'
                 }
             }
         }
