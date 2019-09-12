@@ -88,7 +88,7 @@ pipeline {
             echo 'Message from post-conditions/always'
         }
         success {
-            echo 'Message from post-conditions/success '
+            echo 'Message from post-conditions/success'
         }
         failure {
             echo 'Message from post-conditions/failure'
