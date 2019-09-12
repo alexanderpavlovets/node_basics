@@ -1,3 +1,20 @@
+# Jenkins triggered by Github webhook:
+1) Install ngrok
+2) Run by 
+```
+./ngrok http 8080
+```
+3) Copy HTTPS Url provided by ngrok console -> @url
+4) Go to github ->repo -> settings -> webhooks -> add -> paste @url+/github-webhook/
+```
+https://228b9f82.ngrok.io/github-webhook/
+```
+5) Run Jenkins on 8080
+6) Go to Manage Jenkins -> Configure System -> GitHub Pull Requests -> paste HTTPS URLof your repo
+7) Go to job/pipeline -> Configure -> Build triggers -> GitHub hook trigger for GITScm polling
+8) Push smth in repo -> enjoy your build
+
+# Jenkinsfile declarative pipeline syntax
 ## String interpolation 
 
 as in php: '' vs ""
