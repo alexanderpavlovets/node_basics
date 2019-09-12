@@ -41,10 +41,12 @@ pipeline {
             }
         }
 
-        stage('Docker') {
+        stage('Scripts') {
             steps {
-                echo 'started'
                 sh 'docker image ls'
+                dir("folder") {
+                    sh 'pwd'
+                }
             }
         }
 
