@@ -75,7 +75,7 @@ pipeline {
                 // timeout(time: 5, unit: 'SECONDS') {
                 //     sh './some-check.sh'
                 // }
-                echo 'turned off'
+                echo 'turned off security on'
             }
         }
     }
