@@ -75,7 +75,7 @@ pipeline {
                 // timeout(time: 5, unit: 'SECONDS') {
                 //     sh './some-check.sh'
                 // }
-                echo 'Skipped'
+                echo 'trigger this fucking piece of shit !!!!'
             }
         }
     }
