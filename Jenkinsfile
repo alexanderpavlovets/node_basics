@@ -31,25 +31,30 @@ pipeline {
                 echo env.ADDED_ENV_VAR
                 echo env.ADDED_ENV_VAR_FOR_STAGE
                 sh 'printenv'
-            }
-        }
-        
-        stage('Parameters') {
-            steps {
                 // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
                 echo "${params.userName} is current user"
             }
         }
-
-        stage('Scripts') {
+        
+        stage('Building Browsers Farm') {
             steps {
-                sh 'docker image ls'
+                dir("test_browsers_farm") {
+                    git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
+                    sh './start.sh'
+                }
+            }
+        }
+
+        stage('Testing') {
+            steps {
                 dir("test_framework") {
-                    sh 'pwd'
                     git url: 'https://github.com/alexanderpavlovets/easy_start_protractor-ts.git'
                     sh 'cat README.md'
                     sh 'npm install'
                     sh 'npm test'
+                }
+                dir("test_browsers_farm") {
+                    sh './stop.sh'
                 }
             }
         }
