@@ -101,7 +101,7 @@ pipeline {
             echo 'Message from post-conditions/unstable'
         }
         changed {
-            echo 'Message from post-conditions/changed'
+            echo 'Message from post-conditions/changed '
         }
     }
 }
