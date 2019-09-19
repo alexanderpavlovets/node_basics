@@ -119,3 +119,15 @@ post {
     }
 }
 ```
+
+## Several repo usage
+Advice is to use different folders for different repos:
+```
+steps {
+    dir("test_framework") {
+        sh 'pwd'
+        git url: 'https://github.com/alexanderpavlovets/easy_start_protractor-ts.git'
+        sh 'cat README.md'
+    }
+}
+```
