@@ -48,6 +48,8 @@ pipeline {
                     sh 'pwd'
                     git url: 'https://github.com/alexanderpavlovets/easy_start_protractor-ts.git'
                     sh 'cat README.md'
+                    sh 'npm install'
+                    sh 'npm test'
                 }
             }
         }
