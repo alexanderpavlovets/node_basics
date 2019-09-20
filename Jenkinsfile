@@ -60,12 +60,12 @@ pipeline {
         }
 
         stage('Groove') {
-            steps {
-                when {
-                    expression {
-                        !true
-                    }
+            when {
+                expression {
+                    !true
                 }
+            }
+            steps {
                 // Groovy-like methods call:
                 sh 'echo hello' /* short form  */
                 sh([script: 'echo hello'])  /* long form */
