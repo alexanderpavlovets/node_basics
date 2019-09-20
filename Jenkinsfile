@@ -15,7 +15,7 @@ pipeline {
         )}"""
     }
 
-    // Parameters for pipeline. See usage in stage 2 step 1 
+    // Parameters for pipeline.
     parameters {
       string(name: 'userName', defaultValue: 'Alex-Default', description: 'Default user name to usage')
     }
@@ -38,9 +38,6 @@ pipeline {
         
         stage('Building Browsers Farm') {
             steps {
-                // echo environment
-                // echo '---------'
-                // echo parameters
                 dir("test_browsers_farm") {
                     git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
                     sh './start.sh'
@@ -64,6 +61,11 @@ pipeline {
 
         stage('Groove') {
             steps {
+                when {
+                    expression {
+                        !true
+                    }
+                }
                 // Groovy-like methods call:
                 sh 'echo hello' /* short form  */
                 sh([script: 'echo hello'])  /* long form */
