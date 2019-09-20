@@ -38,10 +38,12 @@ pipeline {
         
         stage('Building Browsers Farm') {
             steps {
+                echo environment
+                echo '---------'
+                echo parameters
                 dir("test_browsers_farm") {
                     git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
                     sh './start.sh'
-                    sh 'exit 1'
                 }
             }
         }
@@ -113,3 +115,6 @@ pipeline {
         }
     }
 }
+
+Continue on scenario:
+- if 1 stage failed 'exit 1' for example - all next should be skipped.
