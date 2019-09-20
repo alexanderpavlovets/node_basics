@@ -116,5 +116,3 @@ pipeline {
     }
 }
 
-Continue on scenario:
-- if 1 stage failed 'exit 1' for example - all next should be skipped.
