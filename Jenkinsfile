@@ -38,9 +38,9 @@ pipeline {
         
         stage('Building Browsers Farm') {
             steps {
-                echo environment
-                echo '---------'
-                echo parameters
+                // echo environment
+                // echo '---------'
+                // echo parameters
                 dir("test_browsers_farm") {
                     git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
                     sh './start.sh'
