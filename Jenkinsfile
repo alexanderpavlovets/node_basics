@@ -60,7 +60,7 @@ pipeline {
         
         stage('Building Browsers Farm') {
             when {
-                environment name: 'IS_ALIVE', value: true
+                environment name: 'IS_ALIVE', value: 'true'
             }
             steps {
                 dir("test_browsers_farm") {
