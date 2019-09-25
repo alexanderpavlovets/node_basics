@@ -72,9 +72,7 @@ pipeline {
 
         stage('Testing') {
             when {
-                expression {
-                    env.IS_ALIVE == true
-                }
+                environment name: 'IS_ALIVE', value: 'true'
             }
             steps {
                 dir("test_framework") {
@@ -91,9 +89,7 @@ pipeline {
 
         stage('Groove') {
             when {
-                expression {
-                    !true
-                }
+                environment name: 'IS_ALIVE', value: 'true'
             }
             steps {
                 // Groovy-like methods call:
@@ -104,9 +100,7 @@ pipeline {
 
         stage('Multiple sh lines') {
             when {
-                expression {
-                    env.IS_ALIVE == true
-                }
+                environment name: 'IS_ALIVE', value: 'true'
             }
             steps {
                 sh '''
@@ -119,7 +113,7 @@ pipeline {
         stage('Retry and Timeout') {
             when {
                 expression {
-                    env.IS_ALIVE == true
+                    !true
                 }
             }
             steps {
