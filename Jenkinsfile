@@ -32,7 +32,7 @@ pipeline {
                     env.IS_ALIVE = true
                 }
                 catchError {
-                    sh 'npm --version'
+                    sh env.IS_ALIVE
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                     echo env.ADDED_ENV_VAR
                     echo env.ADDED_ENV_VAR_FOR_STAGE
