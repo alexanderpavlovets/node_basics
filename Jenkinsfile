@@ -30,11 +30,12 @@ pipeline {
             steps {
                 script {
                     env.IS_ALIVE = true
-                }
-                if ( env.IS_ALIVE == true ) then
+                    if ( env.IS_ALIVE == true ) then
                     echo "Strings are equal"
-                else
+                        else
                     echo "Strings are not equal"
+                }
+                
 
                 catchError {
                     sh env.IS_ALIVE
