@@ -42,9 +42,9 @@ pipeline {
             }
             post {
                 failure {
-                    script {
+
                         env.IS_ALIVE = false
-                    }
+                    
                     
                 }
             }
