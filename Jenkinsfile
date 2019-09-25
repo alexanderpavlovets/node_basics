@@ -57,12 +57,13 @@ pipeline {
         }
         
         stage('Building Browsers Farm') {
-            when {
-                expression {
-                    env.IS_ALIVE == true
-                }
-            }
+            // when {
+            //     expression {
+            //         env.IS_ALIVE == true
+            //     }
+            // }
             steps {
+                echo env.IS_ALIVE
                 dir("test_browsers_farm") {
                     git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
                     sh './start.sh'
