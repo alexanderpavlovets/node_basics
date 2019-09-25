@@ -37,7 +37,8 @@ pipeline {
             }
             post {
                 failure {
-                    env.IS_ALIVE = false
+                    // env.IS_ALIVE = false
+                    echo 'WTF??'
                 }
             }
         }
