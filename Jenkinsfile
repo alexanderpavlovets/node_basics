@@ -69,6 +69,11 @@ pipeline {
         }
 
         stage('Testing') {
+            when {
+                expression {
+                    env.IS_ALIVE == true
+                }
+            }
             steps {
                 dir("test_framework") {
                     git url: 'https://github.com/alexanderpavlovets/easy_start_protractor-ts.git'
@@ -96,6 +101,11 @@ pipeline {
         }
 
         stage('Multiple sh lines') {
+            when {
+                expression {
+                    env.IS_ALIVE == true
+                }
+            }
             steps {
                 sh '''
                     echo "Multiline shell are available also"
@@ -105,6 +115,11 @@ pipeline {
         }
 
         stage('Retry and Timeout') {
+            when {
+                expression {
+                    env.IS_ALIVE == true
+                }
+            }
             steps {
                 // These fail the build - turned-off
                 // retry(2) {
