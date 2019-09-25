@@ -37,7 +37,7 @@ pipeline {
             }
             post {
                 failure {
-                    IS_ALIVE = false
+                    env.IS_ALIVE = false
                 }
             }
         }
