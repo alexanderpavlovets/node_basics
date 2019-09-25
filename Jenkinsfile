@@ -31,11 +31,11 @@ pipeline {
                 script {
                     env.IS_ALIVE = true
                 }
-                if [ env.IS_ALIVE == true ]; then
+                if ( env.IS_ALIVE == true ); then
                     echo "Strings are equal"
                 else
                     echo "Strings are not equal"
-                    
+
                 catchError {
                     sh env.IS_ALIVE
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
