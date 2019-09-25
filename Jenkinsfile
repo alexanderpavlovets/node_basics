@@ -1,18 +1,19 @@
 pipeline {
-    // agent { docker { image 'node:6.3' } }
-    agent any
-    environment {
-      ADDED_ENV_VAR = 'added env variable for all steps within pipeline'
 
-      // Dynamic set of env variables:
-      RETURN_EXIT_STATUS = """${sh(
-            returnStatus: true,
-            script: 'exit 1'
-        )}"""
-      RETURN_STD_OUT_EXAMPLE = """${sh(
-            returnStdout: true,
-            script: 'echo "clang"'
-        )}"""
+    agent any
+
+    environment {
+        ADDED_ENV_VAR = 'added env variable for all steps within pipeline'
+        // Dynamic set of env variables:
+        RETURN_EXIT_STATUS = """${sh(
+                returnStatus: true,
+                script: 'exit 1'
+            )}"""
+        RETURN_STD_OUT_EXAMPLE = """${sh(
+                returnStdout: true,
+                script: 'echo "clang"'
+            )}"""
+        IS_ALIVE = true
     }
 
     // Parameters for pipeline.
@@ -33,11 +34,20 @@ pipeline {
                 sh 'printenv'
                 // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
                 echo "${params.userName} is current user"
-                error 'Error message'
+            }
+            post {
+                failure {
+                    IS_ALIVE = false
+                }
             }
         }
         
         stage('Building Browsers Farm') {
+            when {
+                expression {
+                    IS_ALIVE
+                }
+            }
             steps {
                 dir("test_browsers_farm") {
                     git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
