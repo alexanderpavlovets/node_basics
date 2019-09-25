@@ -47,6 +47,7 @@ pipeline {
                     script {
                         echo 'Maybe this will help'
                         env.IS_ALIVE = false
+                        echo "${env.IS_ALIVE}"
                     }
                     
                 }
@@ -56,7 +57,7 @@ pipeline {
         stage('Building Browsers Farm') {
             when {
                 expression {
-                    IS_ALIVE
+                    env.IS_ALIVE
                 }
             }
             steps {
