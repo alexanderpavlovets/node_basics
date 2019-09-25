@@ -30,10 +30,6 @@ pipeline {
             steps {
                 script {
                     env.IS_ALIVE = true
-                    if ( env.IS_ALIVE == true ) then
-                    echo "Strings are equal"
-                        else
-                    echo "Strings are not equal"
                 }
                 
 
@@ -65,7 +61,7 @@ pipeline {
         stage('Building Browsers Farm') {
             when {
                 expression {
-                    env.IS_ALIVE == true
+                    environment name: 'IS_ALIVE', value: true
                 }
             }
             steps {
