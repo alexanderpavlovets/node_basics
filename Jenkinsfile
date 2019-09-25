@@ -23,15 +23,14 @@ pipeline {
 
     stages {
         stage('ENV_VARS') {
-            script {
-                env.IS_ALIVE = true
-            }
-
             environment {
               ADDED_ENV_VAR_FOR_STAGE = 'added env variable for stage where it was declared'
             }
 
             steps {
+                script {
+                    env.IS_ALIVE = true
+                }
                 sh 'npm --version'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo env.ADDED_ENV_VAR
