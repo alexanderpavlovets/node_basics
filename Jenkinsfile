@@ -2,6 +2,7 @@ pipeline {
 
     agent any
 
+    // It is impossible to re-assign these values
     environment {
         ADDED_ENV_VAR = 'added env variable for all steps within pipeline'
         // Dynamic set of env variables:
@@ -13,7 +14,6 @@ pipeline {
                 returnStdout: true,
                 script: 'echo "clang"'
             )}"""
-        IS_ALIVE = true
     }
 
     // Parameters for pipeline.
@@ -23,9 +23,14 @@ pipeline {
 
     stages {
         stage('ENV_VARS') {
+            script {
+                env.IS_ALIVE = true
+            }
+
             environment {
               ADDED_ENV_VAR_FOR_STAGE = 'added env variable for stage where it was declared'
             }
+
             steps {
                 sh 'npm --version'
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
@@ -37,8 +42,10 @@ pipeline {
             }
             post {
                 failure {
-                    // env.IS_ALIVE = false
-                    echo 'WTF??'
+                    script {
+                        env.IS_ALIVE = false
+                    }
+                    
                 }
             }
         }
