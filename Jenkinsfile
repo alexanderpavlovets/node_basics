@@ -31,6 +31,11 @@ pipeline {
                 script {
                     env.IS_ALIVE = true
                 }
+                if [ env.IS_ALIVE == true ]; then
+                    echo "Strings are equal"
+                else
+                    echo "Strings are not equal"
+                    
                 catchError {
                     sh env.IS_ALIVE
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
@@ -57,13 +62,12 @@ pipeline {
         }
         
         stage('Building Browsers Farm') {
-            // when {
-            //     expression {
-            //         env.IS_ALIVE == true
-            //     }
-            // }
+            when {
+                expression {
+                    env.IS_ALIVE == true
+                }
+            }
             steps {
-                echo "${env.IS_ALIVE}"
                 dir("test_browsers_farm") {
                     git url: 'https://github.com/alexanderpavlovets/selenoid_easy_start_unix.git'
                     sh './start.sh'
