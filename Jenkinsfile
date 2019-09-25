@@ -31,20 +31,23 @@ pipeline {
                 script {
                     env.IS_ALIVE = true
                 }
-                sh 'npm --version'
-                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                echo env.ADDED_ENV_VAR
-                echo env.ADDED_ENV_VAR_FOR_STAGE
-                sh 'printenv'
-                // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
-                echo "${params.userName} is current user"
-                error 'error here'
+                catchError {
+                    sh 'npm --version'
+                    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+                    echo env.ADDED_ENV_VAR
+                    echo env.ADDED_ENV_VAR_FOR_STAGE
+                    sh 'printenv'
+                    // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
+                    echo "${params.userName} is current user"
+                    error 'error here'
+                }
             }
             post {
                 failure {
-
+                    script {
+                        echo 'Maybe this will help'
                         env.IS_ALIVE = false
-                    
+                    }
                     
                 }
             }
