@@ -38,7 +38,7 @@ pipeline {
                 sh 'printenv'
                 // via "params" it is possible to acces define "parameters", and parameters from "Build with Paraemters" setting
                 echo "${params.userName} is current user"
-                sh 'exit 1'
+                error 'error here'
             }
             post {
                 failure {
