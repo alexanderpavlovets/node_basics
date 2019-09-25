@@ -111,10 +111,8 @@ pipeline {
         }
 
         stage('Retry and Timeout') {
-            when {
-                expression {
-                    !true
-                }
+             when {
+                environment name: 'IS_ALIVE', value: 'false'
             }
             steps {
                 // These fail the build - turned-off
