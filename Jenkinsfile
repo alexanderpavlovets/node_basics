@@ -57,7 +57,7 @@ pipeline {
         stage('Building Browsers Farm') {
             when {
                 expression {
-                    env.IS_ALIVE
+                    env.IS_ALIVE == true
                 }
             }
             steps {
