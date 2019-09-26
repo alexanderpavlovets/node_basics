@@ -14,6 +14,7 @@ pipeline {
                 returnStdout: true,
                 script: 'echo "clang"'
             )}"""
+        IS_ALIVE = true
     }
 
     // Parameters for pipeline.
@@ -28,9 +29,9 @@ pipeline {
             }
 
             steps {
-                script {
-                    env.IS_ALIVE = true
-                }
+                // script {
+                //     env.IS_ALIVE = true
+                // }
                 
 
                 catchError {
