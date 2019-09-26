@@ -42,7 +42,7 @@ pipeline {
                     echo "${params.userName} is current user"
                     
                     // Thorow this one to simulate fail
-                    // error 'error here'
+                    error 'error here'
                 }
             }
             post {
