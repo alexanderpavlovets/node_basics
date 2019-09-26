@@ -51,7 +51,7 @@ pipeline {
                 failure {
                     script {
                         echo 'Maybe this will help'
-                        env.IS_ALIVE = false
+                        IS_ALIVE = false
                         echo "${env.IS_ALIVE}"
                     }
                     
