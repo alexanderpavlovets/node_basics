@@ -42,7 +42,7 @@ pipeline {
                     echo "${params.userName} is current user"
                     
                     // Thorow this one to simulate fail
-                    error 'error here'
+                    // error 'error here'
                 }
             }
             post {
@@ -111,7 +111,7 @@ pipeline {
 
         stage('Retry and Timeout') {
              when {
-                environment name: 'IS_ALIVE', value: 'false'
+                environment name: 'IS_ALIVE', value: 'false' // Just to show the skipped step
             }
             steps {
                 // These fail the build - turned-off
