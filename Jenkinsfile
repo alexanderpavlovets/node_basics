@@ -35,7 +35,7 @@ pipeline {
                 
 
                 catchError {
-                    sh env.IS_ALIVE
+                    echo env.IS_ALIVE
                     echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
                     echo env.ADDED_ENV_VAR
                     echo env.ADDED_ENV_VAR_FOR_STAGE
@@ -44,7 +44,7 @@ pipeline {
                     echo "${params.userName} is current user"
                     
                     // Thorow this one to simulate fail
-                    // error 'error here'
+                    error 'error here'
                 }
             }
             post {
