@@ -14,7 +14,6 @@ pipeline {
                 returnStdout: true,
                 script: 'echo "clang"'
             )}"""
-        IS_ALIVE = true
     }
 
     // Parameters for pipeline.
@@ -29,10 +28,9 @@ pipeline {
             }
 
             steps {
-                // script {
-                //     env.IS_ALIVE = true
-                // }
-                
+                script {
+                    env.IS_ALIVE = true
+                }
 
                 catchError {
                     echo env.IS_ALIVE
@@ -44,14 +42,14 @@ pipeline {
                     echo "${params.userName} is current user"
                     
                     // Thorow this one to simulate fail
-                    error 'error here'
+                    // error 'error here'
                 }
             }
             post {
                 failure {
                     script {
                         echo 'Maybe this will help'
-                        IS_ALIVE = false
+                        env.IS_ALIVE = false
                         echo "${env.IS_ALIVE}"
                     }
                     
