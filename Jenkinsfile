@@ -48,7 +48,7 @@ pipeline {
             post {
                 failure {
                     script {
-                        echo 'Maybe this will help'
+                        echo 'Failure happened'
                         env.IS_ALIVE = false
                         echo "${env.IS_ALIVE}"
                     }
