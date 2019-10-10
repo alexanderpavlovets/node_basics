@@ -8,4 +8,4 @@ console.log(isArgumentPrimitive(undefined)) // true
 console.log(isArgumentPrimitive({}))        // false 
 console.log(isArgumentPrimitive([]))        // false 
 console.log(isArgumentPrimitive(true))      // true 
-console.log(isArgumentPrimitive(false))     // true 
+console.log(isArgumentPrimitive(false))     // true

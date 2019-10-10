@@ -23,11 +23,11 @@ Child.prototype.appendProperty = function() {
 
 Parent.prototype.parentAppend = 'appended to parent'
 
-const parentInstance = new Parent()
 const childInstance = new Child()
+const parentInstance = new Parent()
 
 childInstance.appendProperty()
-console.log(childInstance.parentAppend)
+console.log(childInstance.parentAppend) // undefined
 // parentInstance.appendProperty() // Error
 
 // ______________________

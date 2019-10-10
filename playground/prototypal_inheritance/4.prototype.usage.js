@@ -32,3 +32,5 @@ console.log(o1.__proto__.__proto__) // ?
 
 
 // do not forget utils.inherit - show an example 
+
+// add example from your favorite article about interview - inheritance y reference
