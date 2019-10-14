@@ -11,7 +11,8 @@ Human.prototype.walk = function() {
   console.log('i am walking')
 }
 
+console.log('Not changed object itself:')
 console.log(man)
-console.log(man.prototypeProperty)
 
-
+console.log('Properties in .prototype:')
+console.log(man.__proto__)

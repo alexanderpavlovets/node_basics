@@ -10,6 +10,7 @@ actionInstance.propInstance = 'property in instance'
 console.log(actionInstance.propInstance)
 console.log(actionInstance.propPrototype)
 
+
 // literally adding .__proto__
 console.log('********* .__proto__')
 function action1() {}
@@ -17,6 +18,7 @@ action1.prototype.hiFromAction1 = 'hi from action 1'
 function action2() {}
 action2.prototype.__proto__ = action1.prototype
 console.log(new action2().hiFromAction1)
+
 
 // Object.create
 console.log('********* Object.create:')
