@@ -24,14 +24,34 @@ console.log(new action2().hiFromAction1)
 console.log('********* Object.create:')
 const a = {a: 1}
 const b = Object.create(a)
-
 const o = Object.create(Object.prototype) // is equal to const o = {}
-
 const o1 = Object.create(b, {o1Prop: {value:1, enumerable: true}})
+
 console.log(o1) // ?
 console.log(o1.__proto__) // ?
 console.log(o1.__proto__.__proto__) // ?
 
+
+// Object.assing
+console.log('********* Object.assign:')
+const obj1 = {a: 1}
+const obj2 = {a: 2}
+const obj3 = {b: 3}
+const resultObj = Object.assign(obj1, obj2, obj3)
+console.log(resultObj)
+console.log(obj1) // assign changes the target
+
+
+// Object.setProtoypeOf
+// Performance issues
+console.log('********* Object.setPrototypeOf:')
+const targetObj = {a: 1}
+const futureProtoObj = {b: 2}
+const result = Object.setPrototypeOf(targetObj, futureProtoObj)
+console.log(result)
+console.log(result.b)
+console.log(result.__proto__)
+console.log(targetObj.__proto__)
 
 // do not forget utils.inherit - show an example 
 
