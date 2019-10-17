@@ -8,7 +8,7 @@ console.log(Human.__proto__) // ?
 
 const Human1 = new Object({a: 1})
 console.log(Human1.prototype) // ?
-console.log(Human1.__proto__) // ? 
+console.log(Human1.__proto__) // ?
 
 
 // ______

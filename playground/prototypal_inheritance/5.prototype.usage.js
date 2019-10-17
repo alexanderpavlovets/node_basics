@@ -12,6 +12,8 @@ console.log(actionInstance.propPrototype)
 
 
 // literally adding .__proto__
+// do not use it - MDN
+// how to replace .__proto__ // ?
 console.log('********* .__proto__')
 function action1() {}
 action1.prototype.hiFromAction1 = 'hi from action 1'
@@ -52,7 +54,3 @@ console.log(result)
 console.log(result.b)
 console.log(result.__proto__)
 console.log(targetObj.__proto__)
-
-// do not forget utils.inherit - show an example 
-
-// add example from your favorite article about interview - inheritance y reference
