@@ -24,8 +24,8 @@ console.log(Humans1.__proto__) // ?
 
 console.log(Array.prototype.hasOwnProperty('toString'))
 console.log(Array.prototype.hasOwnProperty('slice'))
-console.log(Array.prototype.hasOwnProperty('toString'))
-console.log(Array.prototype.hasOwnProperty('toString'))
+console.log(Array.prototype.hasOwnProperty('reduce'))
+console.log(Array.prototype.hasOwnProperty('map'))
 
 
 // ______

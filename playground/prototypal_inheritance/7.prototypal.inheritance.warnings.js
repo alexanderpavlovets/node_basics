@@ -4,11 +4,11 @@ const Parent = function() {
 }
 const Child = function() {
   this.childProp = 'child own property'
-
 }
 
 Child.prototype.myProp = 1
 Child.prototype.myProp2 = 2
+
 
 Child.prototype = Object.create(Parent.prototype)
 Object.defineProperty(Child.prototype, 'constructor', {
@@ -28,12 +28,12 @@ console.log(childInstance.myProp2)
 
 
 
-// Child.prototype = Object.create(Object.assign(Child.prototype,Parent.prototype))
+// Child.prototype = Object.assign(Object.create(Parent.prototype), Child.prototype)
 
 
 // Flexibility:
 // Don't do that:
-childInstance.__proto__.__proto__.appendProperty = function() {
-  console.log('appended')
-}
-parentInstance.appendProperty()
+// childInstance.__proto__.__proto__.appendProperty = function() {
+//   console.log('appended')
+// }
+// parentInstance.appendProperty()
