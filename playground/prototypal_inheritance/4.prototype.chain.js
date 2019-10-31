@@ -20,7 +20,7 @@ console.log(arr.__proto__.__proto__.hasOwnProperty('hasOwnProperty'))
 console.log(Object.prototype.hasOwnProperty('hasOwnProperty'))
 
 
-// Main take-away - prototype advantages: 
+// Main take-away - prototype advantages:
 // - protoype it is just an object
 // - prototypes store shared data = one place of realization
 // - that's why every literally created array has .map .filter ect.
