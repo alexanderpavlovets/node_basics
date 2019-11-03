@@ -27,11 +27,10 @@ console.log(childInstance.myProp2)
 
 
 
-
 // Child.prototype = Object.assign(Object.create(Parent.prototype), Child.prototype)
 
 
-// Flexibility:
+// Flexibility - prototype != blueprint:
 // Don't do that:
 // childInstance.__proto__.__proto__.appendProperty = function() {
 //   console.log('appended')

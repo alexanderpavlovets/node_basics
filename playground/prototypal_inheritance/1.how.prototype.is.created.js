@@ -4,7 +4,7 @@ function Human(sex) {
 
 const man = new Human('man')
 
-console.log(man)
+console.log(man, '\n')
 
 Human.prototype.prototypeProperty = 'i am in .prototype'
 Human.prototype.walk = function() {
@@ -12,7 +12,7 @@ Human.prototype.walk = function() {
 }
 
 console.log('Not changed object itself:')
-console.log(man)
+console.log(man, '\n')
 
 console.log('Properties in .prototype:')
-console.log(man.__proto__)
+console.log(man.__proto__, '\n')
