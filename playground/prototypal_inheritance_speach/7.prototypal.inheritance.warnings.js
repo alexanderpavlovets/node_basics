@@ -32,7 +32,7 @@ console.log(childInstance.myProp2)
 
 // Flexibility - prototype != blueprint:
 // Don't do that:
-// childInstance.__proto__.__proto__.appendProperty = function() {
-//   console.log('appended')
-// }
-// parentInstance.appendProperty()
+childInstance.__proto__.__proto__.appendProperty = function() {
+  console.log('appended')
+}
+parentInstance.appendProperty()

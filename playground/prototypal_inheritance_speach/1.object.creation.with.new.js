@@ -1,3 +1,4 @@
+
 function Human(sex) {
   this.sex = sex
 }

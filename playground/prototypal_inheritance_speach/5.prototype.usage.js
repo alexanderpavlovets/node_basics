@@ -27,6 +27,7 @@ console.log('********* Object.create:')
 const a = {a: 1}
 const b = Object.create(a)
 const o = Object.create(Object.prototype) // is equal to const o = {}
+
 const o1 = Object.create(b, {o1Prop: {value:1, enumerable: true}})
 
 console.log(o1) // ?

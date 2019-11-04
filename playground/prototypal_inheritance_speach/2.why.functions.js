@@ -9,9 +9,10 @@ class Human {
 }
 
 const man = new Human('man')
+
 Human.prototype.prototypeProperty = 'i am in .prototype'
 console.log(man)
-console.log(man.prototypeProperty)
+console.log(man.prototypeProperty) // after "man" is created already
 
 console.log(Human.prototype.hasOwnProperty('prototypeProperty'))
 console.log(Human.prototype.hasOwnProperty('walk'))

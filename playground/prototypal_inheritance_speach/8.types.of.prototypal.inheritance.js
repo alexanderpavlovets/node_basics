@@ -4,7 +4,8 @@
  * 
  * Prototype delegation
  * Functional inheritance
- * Concatenative inheritance
+ * Concatenation
+ * Aggregation
 */
 
 // ______________ Prototype delegation ______________
@@ -43,7 +44,7 @@ const dasha = femaleFactory({name: 'Dasha'})
 masha.tellMeAboutYourself()
 dasha.tellMeAboutYourself()
 
-// ______________ Concatenative inheritance ______________
+// ______________ Concatenation ______________
 const individual = {
   name: '',
   age: 0
@@ -66,5 +67,22 @@ const jamesBond = Object.assign({}, individual, runner, swimmer, flyer, shooter)
 jamesBond.run()
 jamesBond.shoot()
 
-// What oject IS - inheritance
-// How object behaves - composition
+// What oject IS-A - inheritance
+// What object HAS-A - composition
+
+// ______________ Aggregation ______________
+const objects = [{name: 'a'}, {name: 'b'}, {name: 'c', secondName: 'secondC'}]
+
+const myAggregation = {
+  first: objects[0],
+  second: objects[1],
+  third: objects[2]
+}
+
+const myConcatenaion = {
+  ...objects[0],
+  ...objects[1],
+  ...objects[2],
+}
+
+const aggregationSimpliesExample = [1,2,3]
