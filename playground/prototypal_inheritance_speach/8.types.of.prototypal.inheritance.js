@@ -3,7 +3,7 @@
  * OLOO:
  * 
  * Prototype delegation
- * Functional inheritance
+ * Prototype delegation - Functional inheritance
  * Concatenation
  * Aggregation
 */
@@ -22,7 +22,7 @@ const student = Object.assign(Object.create(human), {
 
 student.walk()
 
-// ______________ Functional inheritance ______________
+// ______________ Prototype delegation - Functional inheritance ______________
 
 const person = {
   name: '',
