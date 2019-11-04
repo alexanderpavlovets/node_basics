@@ -7,6 +7,11 @@ const Child = function() {
 }
 
 Child.prototype = Object.create(Parent.prototype)
+Object.defineProperty(Child.prototype, 'constructor', {
+  value: Child,
+  enumerable: false,
+  writable: false
+})
 
 const parentInstance = new Parent()
 const childInstance = new Child()
@@ -14,11 +19,6 @@ const childInstance = new Child()
 console.log(Parent.prototype)
 console.log(Child.prototype)
 
-
-// Child.prototype.constructor = Child // good practise.
-
-
-// console.log(childInstance.childProp) //
 
 
 // MDN example of change of constructor

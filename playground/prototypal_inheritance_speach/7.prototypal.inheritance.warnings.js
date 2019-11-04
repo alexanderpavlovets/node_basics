@@ -10,7 +10,7 @@ Child.prototype.myProp = 1
 Child.prototype.myProp2 = 2
 
 
-Child.prototype = Object.create(Parent.prototype)
+Child.prototype = Object.assign(Object.create(Parent.prototype), Child.prototype)
 Object.defineProperty(Child.prototype, 'constructor', {
   value: Child,
   enumerable: false,
