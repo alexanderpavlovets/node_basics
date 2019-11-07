@@ -5,6 +5,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "env-update": "webdriver-manager update --versions.chrome 78.0.3904.87 --gecko=false",
     "drivers-update": "webdriver-manager update",
     "tsc": "tsc",
     "test": "protractor",

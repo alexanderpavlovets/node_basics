@@ -9,6 +9,19 @@
 * Jenkins readme (small notes, and Jenkinsfile itself)
 * protractor just because of habbit :)
 
+# To run protractor test
+Run "npm install", after downloading.
+
+For run on your browsers-farm:
+- npm test
+
+For direct-connect:
+- Go to "node_modules/protractor" and run "npm i webdriver-manager@latest"
+- Go back to root
+- package.json -> change chrome version on desired one (take version of your browser)
+- Run "npm run env-update"
+- Run "npm test" in order to start your tests
+
 
 # ES5 Server details: 
 
