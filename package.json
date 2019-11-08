@@ -1,12 +1,13 @@
 {
-  "name": "protractor_playground",
+  "name": "node_basics",
   "version": "1.0.0",
-  "description": "Description for my protractor tests",
+  "description": "Code examples and playground",
+  "repository": "https://github.com/alexanderpavlovets/node_basics.git",
   "author": "",
   "license": "ISC",
   "scripts": {
     "env-update": "webdriver-manager update --versions.chrome 78.0.3904.87 --gecko=false",
-    "drivers-update": "webdriver-manager update",
+    "postinstall": "webdriver-manager update",
     "tsc": "tsc",
     "test": "protractor",
     "ts-node": "ts-node"

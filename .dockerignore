@@ -1,0 +1,9 @@
+# Exclude:
+./node_modules
+./basics
+./design_patterns_bad_course
+./es6_good_parts
+./node_wo_frameworks
+./Notes
+./playground
+./rethinking_async_js
