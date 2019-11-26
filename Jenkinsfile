@@ -157,4 +157,5 @@ pipeline {
 //  Continue with: 
 //   - moving this file to "jenkins" folder - as handbook 
 //   - create clear Jenkinsfile for the pipile - rtecreate pipeline itself (for demostration)
+// hi Y )
 
