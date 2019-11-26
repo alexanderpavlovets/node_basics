@@ -108,6 +108,16 @@ pipeline {
 }
 ```
 
+## Allure report adding: 
+- download and install "Allure Jenkins Plugin" from Manage Jenkins
+- add allure command line: Manage Jenkins -> Global Tool Configuration -> find Allure CommandLine installations (https://www.wedoqa.com/2017/11/allure-integration-in-jenkins/)
+- in case of pipeline (mine one), just add a script to post-conditions: 
+```
+allure includeProperties: false, jdk: '', results: [[path: 'test_framework/allure-results']]
+```
+This script is generated from Jenkins itself (snippet). 
+Example https://docs.qameta.io/allure/#_pipeline_plugin - official docs.
+
 ## Notifications:
 As testing - nice to have it in post-actions: 
 ```
