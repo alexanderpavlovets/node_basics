@@ -79,6 +79,7 @@ pipeline {
                     sh 'cat README.md'
                     sh 'npm install'
                     sh 'npm test'
+                    sh 'ls -a'
                 }
                 dir("test_browsers_farm") {
                     sh './stop.sh'
