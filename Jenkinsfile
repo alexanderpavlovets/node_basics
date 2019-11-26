@@ -136,7 +136,8 @@ pipeline {
     post {
         always {
             echo 'Message from post-conditions/always'
-            allure includeProperties: false, jdk: '', results: [[path: '/test_framework/allure-results']]
+            echo ls
+            allure includeProperties: false, jdk: '', results: [[path: './test_framework/allure-results']]
         }
         success {
             echo 'Message from post-conditions/success'
