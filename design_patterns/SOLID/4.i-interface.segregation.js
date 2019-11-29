@@ -2,6 +2,8 @@
 // ISP - segregate (split) interfaces on different parts
 // This allows to interface users implement only what they need, and avoid unnecessary implementstion, like this one:
 
+// Also good to menion here - YAGNI = Your Aren't Going to Need Tt 
+
 // AKA Interface in JS
 class PrintMachine {
   constructor() {}

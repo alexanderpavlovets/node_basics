@@ -1,6 +1,6 @@
 
 // Every class should have only 1 responsibility
-// also "single responsibility" called "separation of concerns"
+// Similar principle - "separation of concerns" - different classes should handle different/independent tasks
 
 const fs = require('fs');
 
