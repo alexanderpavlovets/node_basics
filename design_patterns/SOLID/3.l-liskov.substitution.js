@@ -40,5 +40,5 @@ console.log('********')
 console.log(`Actual result of square area ${squareAreadWithWidth3}. Expected result is 25 
   This is BROKEN - width is 3, height is 5. It is not a square!`)
 
-// This is LSP - every child should be able to replace it's parent without logic break
+// This is LSP - every child should be able to replace it's parent without logic break.
 // In this example - we should not inherit Square from Rectangle
