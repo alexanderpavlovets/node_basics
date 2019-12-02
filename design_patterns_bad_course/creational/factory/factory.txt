@@ -1,4 +1,0 @@
-Separate creation from implementation
-Create a different instance based on a condition
-Allows to not expose constructors, to prevent modifications
-
