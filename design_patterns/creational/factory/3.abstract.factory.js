@@ -1,3 +1,6 @@
+
+// Basically - abstract factory is showing type relationships. it can create objects of some type - HotDrinks for example.
+
 const readline = require('readline');
 let rl = readline.createInterface({
   input: process.stdin,
