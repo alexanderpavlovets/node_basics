@@ -10,7 +10,7 @@
   so - high level module should not be directly dependent on low level module.
   in orher words - low level module should not share data with high level module directly
 
-  YOU SHOULD be dependent on abstractions instead of real data.
+  YOU SHOULD be dependent on abstractions instead of real data. (For example - use getter method, instead of read data)
 */
 
 // Bullshit! Not for JS at all!
