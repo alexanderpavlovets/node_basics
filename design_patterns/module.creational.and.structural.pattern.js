@@ -60,7 +60,7 @@ console.log(modulePattern.getCurrentValue()) // 12
 
 // Module logic with chaining
 const modulePatternChain = (function(){
-  value = 10
+  let value = 10
   function increase(){
     value += 1
     return this
