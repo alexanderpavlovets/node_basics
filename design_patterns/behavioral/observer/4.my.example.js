@@ -1,5 +1,5 @@
 
-// Basic example of Observe pattern.
+// Basic example of Observer pattern.
 // "sender" parameter here is not used. Just to show, that it is possible to pass sender to event handler.
 
 // Base class Event
