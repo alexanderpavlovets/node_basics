@@ -52,7 +52,9 @@ let AvailableDrinks = Object.freeze({
 // This is abstract factory. It will make a drink, while you just provide the type in the terminal.
 class HotDrinkMachine {
   constructor() {
+    
     this.factories = {};
+
     for (let drink of Object.keys(AvailableDrinks))
     {
       this.factories[drink] = new AvailableDrinks[drink]();

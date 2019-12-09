@@ -69,3 +69,5 @@ class PersonFactory {
 const greatPerson = Person.factory.newGreatPerson('Person created via factiry getter')
 console.log(greatPerson)
 
+
+// Difference between Builder and Factory - complex parameterized build vs just creating the instance with several parameters.
