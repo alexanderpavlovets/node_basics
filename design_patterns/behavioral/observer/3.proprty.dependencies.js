@@ -72,7 +72,7 @@ class VotingChecker {
   }
 
   votingChanged(sender, args) {
-    if (sender === this.person, args.nameOfTheProperty === 'canVote') {
+    if (sender === this.person && args.nameOfTheProperty === 'canVote') {
       console.log(`Voting status changed to ${args.newValue}`)
     }
   }

@@ -66,7 +66,7 @@ class RegistrationChecker {
         // we need to unsubscribe, because person won't get younger
         sender.propertyChanged.unsubscribe(this.token)
       }
-    } 
+    }
   }
 }
 
