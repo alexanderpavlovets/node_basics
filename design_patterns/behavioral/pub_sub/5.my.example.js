@@ -5,7 +5,6 @@ const pubSub = (function pubSub() {
 
   return {
     publish(event, data) {
-      console.log(subscribers)
       if (!subscribers[event]) return
       subscribers[event].forEach(subscriberCallback =>
         subscriberCallback(data))
@@ -13,13 +12,21 @@ const pubSub = (function pubSub() {
 
     subscribe(event, callback) {
       if (!subscribers[event]) {
-        subscribers[event] = []
+        subscribers[event] = new Map()
       }
-      const index = subscribers[event].push(callback) - 1 // push returns new length of the array
+
+      const cbStorage = subscribers[event]
+      // Getting uniq key in the Map. Last key + 1
+      const lastKeyInMap = cbStorage.size
+        ? Array.from(cbStorage)[cbStorage.size - 1][0] 
+        : 0
+      const uniqMapKey = lastKeyInMap + 1
+      
+      cbStorage.set(uniqMapKey, callback)
 
       return {
         unsubscribe() {
-          subscribers[event].splice(index, 1) // removing the callback from subscribers
+          cbStorage.delete(uniqMapKey)
         }
       };
     }
@@ -78,8 +85,14 @@ lead.goHome()
 // Fuck it!
 grebets1.iAmTooOldForThisSheet()
 grebets2.iAmTooOldForThisSheet()
-// grebets3.iAmTooOldForThisSheet()
-// grebets4.iAmTooOldForThisSheet()
+grebets3.iAmTooOldForThisSheet()
+
 
 lead.arriveToWork()
 lead.goHome()
+
+// More cool specialists
+const grebets5 = new Grebets('Raja Tihju Ajibo')
+const grebets6 = new Grebets('Abi-Dhabi Akalai')
+
+lead.arriveToWork()
