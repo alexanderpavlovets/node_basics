@@ -15,14 +15,14 @@ module.exports = {
   // method to subscribe to an update
   subscribe(event, callback) {
     if (!subscribers[event]) {
-        subscribers[event] = []
+      subscribers[event] = []
     }
     const index = subscribers[event].push(callback) - 1 // push returns new length of the array
-    
+
     return {
-        unsubscribe() {
-            subscribers[event].splice(index, 1) // removing the callback 
-        }
+      unsubscribe() {
+        subscribers[event].splice(index, 1) // removing the callback 
+      }
     };
-}
+  }
 }

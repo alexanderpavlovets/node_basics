@@ -1,7 +1,7 @@
 
 // This module is a subscriber
 
-const pubSub = require('./pubsub')
+const pubSub = require('./1.pubsub')
 
 const subscription = pubSub.subscribe('anEvent', data => {
     console.log(

@@ -72,6 +72,8 @@ class RegistrationChecker {
 
 const person = new Person(10)
 const checker = new RegistrationChecker(person)
+
+
 // set age in the loop, trigger events only untill age reached 18, then - unsubscribe
 for (let i = 11; i < 22; i++) {
   console.log(`Setting age to ${i}`)

@@ -81,6 +81,7 @@ class Lead {
     console.log('WTF??!! Smoke is prohibited!')
     if (args.smokePausesAmount >= 3) {
       console.log(`You are fired! You've been smoking too much`)
+      console.log(`*** I am not your lead anymore! Good bye! ***`)
       this.grebets.cameToWork.unsubscribe(this.grebetsCameToWorkId)
       this.grebets.goesSmoke.unsubscribe(this.grebetsGoesSmokeId)
       this.grebets.leavesWork.unsubscribe(this.grebetsLeaveWorkId)
@@ -91,7 +92,7 @@ class Lead {
     const isWorkedEnough = args.workedHours >= 8
 
     if(isWorkedEnough) {
-      console.log('Farewell, greates ever grebets!')
+      console.log('Farewell, greatest ever grebets!')
     } else {
       console.log('Not so fast, you idiot!')
     }
@@ -100,23 +101,23 @@ class Lead {
 
 
 // Good grebets:
-const grebets = new Grebets('Jimmy')
-const lead = new Lead(grebets)
+// const grebets = new Grebets('Jimmy')
+// const lead = new Lead(grebets)
 
-grebets.arriveToWork(6)
-grebets.goSmoke()
-grebets.leaveWork(12)
+// grebets.arriveToWork(6)
+// grebets.goSmoke()
+// grebets.leaveWork(12)
 
 // Bad grebets
-// const grebetsBad = new Grebets('Kenny')
-// const zloyLead = new Lead(grebetsBad)
+const grebetsBad = new Grebets('Kenny')
+const zloyLead = new Lead(grebetsBad)
 
-// grebetsBad.arriveToWork(12)
-// grebetsBad.goSmoke()
-// grebetsBad.goSmoke()
-// grebetsBad.leaveWork(3)
-// grebetsBad.goSmoke()    // Unsubscribe here
-// grebetsBad.leaveWork(20)
-// grebetsBad.goSmoke()
-// grebetsBad.goSmoke()
-// grebetsBad.goSmoke()
+grebetsBad.arriveToWork(12)
+grebetsBad.goSmoke()
+grebetsBad.goSmoke()
+grebetsBad.leaveWork(3)
+grebetsBad.goSmoke()    // Unsubscribe here
+grebetsBad.leaveWork(20)
+grebetsBad.goSmoke()
+grebetsBad.goSmoke()
+grebetsBad.goSmoke()

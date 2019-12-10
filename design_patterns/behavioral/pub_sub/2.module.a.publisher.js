@@ -1,7 +1,7 @@
 
 // This module is a publisher
 
-const pubSub = require('./pubsub')
+const pubSub = require('./1.pubsub')
 
 module.exports = {
     publishEvent() {
