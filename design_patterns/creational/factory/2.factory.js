@@ -66,7 +66,7 @@ class PersonFactory {
   }
 }
 
-const greatPerson = Person.factory.newGreatPerson('Person created via factiry getter')
+const greatPerson = Person.factory.newGreatPerson('Person created via factory getter')
 console.log(greatPerson)
 
 
