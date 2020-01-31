@@ -25,7 +25,7 @@ pipeline {
 }
 ```
 
-6) push repo to the gihub 
+6) push repo to the gihub (with webhook in the repo for public URL (Public url = expose your machine port with ngRok))
 7) Jenkins -> New Item -> Enter name -> Multibranch Pipeline -> add source -> HTTPS link from repo -> save
 
 ### See Jenkins file with examples in rrot dir of this repo
