@@ -8,5 +8,8 @@ build
 node_wo_frameworks/app/.data/tokens/*
 node_wo_frameworks/app/.logs/*
 
-./playground/a.json
-./playground/b.json
+playground/a.json
+playground/b.json
+playground/c.json
+
+.DS_store

@@ -11,3 +11,8 @@ Number.prototype[Symbol.iterator] = function*() {
 }
 
 console.log([...10])
+console.log([...-10])
+
+for ( const a of 10) {
+  console.log(a)
+}
