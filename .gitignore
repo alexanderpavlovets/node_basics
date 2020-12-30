@@ -11,5 +11,6 @@ node_wo_frameworks/app/.logs/*
 playground/a.json
 playground/b.json
 playground/c.json
+playground/users/*
 
 .DS_store
