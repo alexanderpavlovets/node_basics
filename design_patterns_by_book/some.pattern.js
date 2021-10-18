@@ -1,1 +1,0 @@
-console.log('Am i allowed to push learning results to my repos ?')
