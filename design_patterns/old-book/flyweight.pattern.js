@@ -24,7 +24,7 @@
 
 /*
   Flyweight often used via Factories - it is much easier to create objects in factories 
-  In factory we just decide to create a new obj, or return already existing intrinsic obj
+  In factory we just decide to create a new obj, or return already existing intrinsic state obj
 */
 
 // Another example (simple one):
