@@ -1,6 +1,7 @@
 // const numbers = [1, 2, 3];
 // numbers[10] = 11;
-// console.log(numbers);
+// console.log(numbers); // [ 1, 2, 3, <7 empty items>, 11 ]
+// console.log(numbers[9]); // undefined
 
 
 // ____________________________________ isNaN maddness:
