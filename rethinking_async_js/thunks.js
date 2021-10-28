@@ -1,3 +1,14 @@
+
+// Thunk - just postpone the function call
+
+// In react-thunk for ex. it just check typeof === function - then call it.
+
+// Basically thunk = lazy initialization implementation in JS.
+
+// MAIN
+// Thunk is a function that run another function with all parameters, that inner function need
+// just calls it later
+
 // Sync 
 function add(x, y) {
   return x + y
