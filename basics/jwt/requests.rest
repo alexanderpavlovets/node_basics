@@ -1,0 +1,42 @@
+
+### General flow: 
+### login
+### take accessToken - paste in /posts -> Bearer
+### take refreshToken - paste in /token -> token
+### Use /post to take your posts, when token expires - use /token to refreshIt
+
+
+### Login request.
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+  "username": "Alex"
+}
+
+
+### Get your posts request.
+### Send req to login with existing (in posts collection) name - copy the token
+### It will expire in 30 seconds
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxleCIsImlhdCI6MTYzNTQyNDI0MywiZXhwIjoxNjM1NDI0ODQzfQ.PSfdr06VZJj9wwT5F0bcJFO6g9dO5uSS5tWHX5tZRG4
+
+
+### Refresh-token request. paste here refreshToken from /login
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxleCIsImlhdCI6MTYzNTQyNTIyNH0.D52Ybaeq-ogZFcpYZ7B1B46aojJnovjflJBkx1VmEKM"
+}
+
+
+### Delete Refresh token request. aka logout = can't generate new accessTokens
+### Paste here refresh token from login, and after request is executed - new access token won't be created
+### Execute this one, then try to execute /token - failure
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxleCIsImlhdCI6MTYzNTQyNTIyNH0.D52Ybaeq-ogZFcpYZ7B1B46aojJnovjflJBkx1VmEKM"
+}
