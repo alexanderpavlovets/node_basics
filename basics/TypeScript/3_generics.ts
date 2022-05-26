@@ -11,3 +11,6 @@ let strArray = getArray<string>(['Alex', 'John'])
 
 // numArray.push('') // err
 numArray.push(123) // ok
+
+
+const stringsArray: Array<string> = [''] // Array<T> - T is generic. Basic example.

@@ -15,12 +15,14 @@
   "dependencies": {
     "@types/jasmine": "^2.8.19",
     "@types/node": "^17.0.13",
+    "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "p-limit": "^4.0.0",
     "protractor": "^5.3.2",
     "qs": "^6.10.3",
-    "typescript": "^4.5.5",
+    "typescript": "^4.6.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
