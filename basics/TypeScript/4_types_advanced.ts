@@ -25,8 +25,15 @@ const obj213123 = {
   key: 'val',
   key2: 'val2',
 };
-type haha = keyof typeof obj213123;
+type keys = keyof typeof obj213123;
 
+// Keys and values of obj as types
+const keysAndValues = {
+  key: 'val1',
+  key2: 'val2'
+} as const;
+type Keys = keyof typeof keysAndValues;
+type Values = typeof keysAndValues[Keys];
 
 // types by [index]:
 interface IUser {
