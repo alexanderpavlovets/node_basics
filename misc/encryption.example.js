@@ -7,11 +7,11 @@ const crypto = require('crypto');
 // const algo = 'aes-256-gcm'; // authTag is needed, iv lenght i don't know - this one is recommended
 // const algo = 'aes-256-ccm'; // authTag + iv should have 12 lenght
 const algo = 'aes-256-cbc'; // works - but this is old one
-const aesKey = 'C6Hqb1JXQ8oQ4lkpj3m7/hC1f5NyMub2Emh6cFg4QAg='; //base64
+const aesKey = "7gi4TdisMoJiEJZi49DsHlFh34O/vgXqCCdYWJvSolg="; //base64
 const iv = crypto.randomBytes(16);
 
 const reqBody = {
-  
+
 };
 
 function encryptReq(body, aesKey, iv) {
@@ -51,3 +51,15 @@ function decryptReq({ content, nonce }, aesKey) {
 
 const encryptionResult = encryptReq(reqBody, aesKey, iv);
 decryptReq(encryptionResult, aesKey);
+
+
+/* Uncomment this to decrypt: 
+  - change aesKey
+  - run
+*/
+// const encrypted = {
+//   "content": "57olBhPeSFfWD7zamn+nTO1zD3ajqxX+zmpwbYTaZiP8h7UTIkonbAPQ04I0/3xsLLVMMu57XWlnXfj/5lRwDcPPSkewSkJ0WsQVSyfr4QFSQMAOFwH1BjtJOwhfkmB9",
+//   "nonce": "OOfH51+2xxWWpt9hkWSHMA=="
+// }
+// decryptReq(encrypted, aesKey);
+
