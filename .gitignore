@@ -1,4 +1,4 @@
-# MAC OS based meta file, just desribing folder 
+># MAC OS based meta file, just desribing folder 
 .DS_store
 
 # installed npm dependencies
